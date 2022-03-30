@@ -1,67 +1,35 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { TiArrowBack } from 'react-icons/ti'
+import { HiUserGroup } from 'react-icons/hi'
+import { FaScroll } from 'react-icons/fa'
+import { BsHouseDoorFill } from 'react-icons/bs'
+import { IoMdOptions } from 'react-icons/io'
 
 export const Review = () => {
 	return (
 		<>
 			<header>
 				<button className='btn btn__nav'>
-					<i className='fa-solid fa-ellipsis-vertical'></i>
+					<IoMdOptions />
 				</button>
-				<h2>Review</h2>
+				<h2>
+					<FaScroll /> Review
+				</h2>
 			</header>
 			<main className='review'>
 				<h2>Your answers:</h2>
-				<section className='review__cards'>
-					<div className='review__card'>
-						<div>
-							<div className='review__card__no'>1.</div>
-							<div className='review__card__question'>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-								minima commodi reiciendis explicabo omnis laboriosam?
-							</div>
-						</div>
-						<div>
-							<div className='review__card__answer'>Lorem, ipsum.</div>
-							<div className='review__card__user correct'>Correct.</div>
-						</div>
-					</div>
-					<div className='review__card'>
-						<div>
-							<div className='review__card__no'>2.</div>
-							<div className='review__card__question'>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-								minima commodi reiciendis explicabo omnis laboriosam?
-							</div>
-						</div>
-						<div>
-							<div className='review__card__answer'>Lorem, ipsum.</div>
-							<div className='review__card__user wrong'>Wrong.</div>
-						</div>
-					</div>
-					<div className='review__card'>
-						<div>
-							<div className='review__card__no'>3.</div>
-							<div className='review__card__question'>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-								minima commodi reiciendis explicabo omnis laboriosam?
-							</div>
-						</div>
-						<div>
-							<div className='review__card__answer'>Lorem, ipsum.</div>
-							<div className='review__card__user correct'>Correct.</div>
-						</div>
-					</div>
-				</section>
+				<section className='review__cards'>{/* TODO REVIEW CARDS */}</section>
 				<nav className='review__options'>
-					<button className='btn'>
-						<i className='fa-solid fa-arrow-rotate-left'></i> Retake
-					</button>
-					<button className='btn'>
-						<i className='fa-solid fa-users'></i> Score
-					</button>
-					<button className='btn'>
-						<i className='fa-solid fa-house-chimney'></i> Home
-					</button>
+					<Link to='/form' className='btn'>
+						<TiArrowBack /> Retake
+					</Link>
+					<Link to='/scoreboard' className='btn'>
+						<HiUserGroup /> Score
+					</Link>
+					<Link to='/' className='btn'>
+						<BsHouseDoorFill /> Home
+					</Link>
 				</nav>
 			</main>
 		</>

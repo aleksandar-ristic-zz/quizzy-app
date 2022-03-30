@@ -1,80 +1,32 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { TiArrowBack } from 'react-icons/ti'
+import { HiUserGroup } from 'react-icons/hi'
+import { BsHouseDoorFill } from 'react-icons/bs'
+import { IoMdOptions } from 'react-icons/io'
+import { ScoreCard } from '../components'
 
 export const Scoreboard = () => {
 	return (
 		<>
 			<header>
 				<button className='btn btn__nav'>
-					<i className='fa-solid fa-ellipsis-vertical'></i>
+					<IoMdOptions />
 				</button>
-				<h2>Scoreboard</h2>
+				<h2>
+					<HiUserGroup /> Scoreboard
+				</h2>
 			</header>
 			<main className='score'>
 				<h2>All scores:</h2>
-				<section className='score__cards'>
-					<div className='score__card'>
-						<div className='score__card__no'>1</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>2</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>3</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-					<div className='score__card'>
-						<div className='score__card__no'>4</div>
-						<p className='score__card__name'>Rick</p>
-						<h3 className='score__card__points'>150pt</h3>
-					</div>
-				</section>
+				<section className='score__cards'>{/* TODO SCORE CARDS */}</section>
 				<section className='score__options show'>
-					<button className='btn'>
-						<i className='fa-solid fa-arrow-rotate-left'></i> Play Again
-					</button>
-					<button className='btn'>
-						<i className='fa-solid fa-house-chimney'></i> Home
-					</button>
+					<Link className='btn'>
+						<TiArrowBack /> Play Again
+					</Link>
+					<Link className='btn'>
+						<BsHouseDoorFill /> Home
+					</Link>
 				</section>
 			</main>
 		</>

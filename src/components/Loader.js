@@ -2,8 +2,8 @@ import React from 'react'
 
 export const Loader = () => {
 	return (
-		<main>
-			<img src='/img/logo.svg' alt='quiz logo' />
+		<main className='loader__container'>
+			<img className='loader' src='/img/logo.svg' alt='quiz logo' />
 		</main>
 	)
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Start = () => {
+export const Home = () => {
 	return (
 		<>
 			<header>
@@ -24,7 +24,7 @@ export const Start = () => {
 					className='start__optionsBase'
 					style={{ backgroundImage: 'url(/img/questionmark.png)' }}
 				>
-					<Link to='/new' className='btn'>
+					<Link to='/form' className='btn'>
 						New Game
 					</Link>
 					<Link to='/score' className='btn'>

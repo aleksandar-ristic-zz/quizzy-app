@@ -1,4 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { TiArrowBack } from 'react-icons/ti'
+import { HiUserGroup } from 'react-icons/hi'
+import { FaScroll } from 'react-icons/fa'
+import { BsHouseDoorFill, BsPenFill } from 'react-icons/bs'
 
 export const Finish = () => {
 	return (
@@ -41,24 +46,29 @@ export const Finish = () => {
 				</section>
 				<form className='finish__save'>
 					<label for='name'>Save your score</label>
-					<input type='text' autocomplete='off' placeholder='Write your name' />
+					<input
+						type='text'
+						maxLength='20'
+						autoComplete='off'
+						placeholder='Write your name'
+					/>
 					<button>
-						<i className='fa-solid fa-floppy-disk'></i>
+						<BsPenFill />
 					</button>
 				</form>
 				<div className='finish__options'>
-					<button>
-						<i className='fa-solid fa-arrow-rotate-left'></i> Play Again
-					</button>
-					<button>
-						<i className='fa-solid fa-users'></i> Score
-					</button>
-					<button>
-						<i className='fa-solid fa-scroll'></i> Review
-					</button>
-					<button>
-						<i className='fa-solid fa-house-chimney'></i> Home
-					</button>
+					<Link to='/form'>
+						<TiArrowBack /> Play Again
+					</Link>
+					<Link to='/scoreboard'>
+						<HiUserGroup /> Score
+					</Link>
+					<Link to='/review'>
+						<FaScroll /> Review
+					</Link>
+					<Link to='/'>
+						<BsHouseDoorFill /> Home
+					</Link>
 				</div>
 			</main>
 		</>

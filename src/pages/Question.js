@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Question = () => {
 	return (
@@ -52,7 +53,9 @@ export const Question = () => {
 						</button>
 					</div>
 				</section>
-				<button className='btn btn__next'>Next</button>
+				<Link to={`will finish`} className='btn btn__next'>
+					Next
+				</Link>
 			</main>
 		</>
 	)

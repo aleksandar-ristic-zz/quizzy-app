@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { MdOutlineKeyboardBackspace } from 'react-icons/md'
 
 export const Form = () => {
 	return (
 		<>
 			<header>
-				<button className='btn btn__back'>
-					<i className='fa-solid fa-arrow-left'></i>
-				</button>
+				<Link to='/' className='btn btn__back'>
+					<MdOutlineKeyboardBackspace />
+				</Link>
 				<img className='logo' src='/img/logo-quiz.svg' alt='quiz logo' />
 			</header>
 			<main>
@@ -58,7 +60,7 @@ export const Form = () => {
 								name='difficulty'
 								value='easy'
 							/>
-							<label for='diff-easy'>Easy</label>
+							<label for='diff-easy'> Easy</label>
 						</div>
 
 						<div>
@@ -68,7 +70,7 @@ export const Form = () => {
 								value='medium'
 								name='difficulty'
 							/>
-							<label for='diff-medium'>Medium</label>
+							<label for='diff-medium'> Medium</label>
 						</div>
 
 						<div>
@@ -78,11 +80,13 @@ export const Form = () => {
 								value='hard'
 								name='difficulty'
 							/>
-							<label for='diff-hard'>Hard</label>
+							<label for='diff-hard'> Hard</label>
 						</div>
 					</section>
 
-					<button className='btn btn__form'>Start Game</button>
+					<Link to='question/:1' className='btn btn__form'>
+						Start Game
+					</Link>
 				</form>
 			</main>
 		</>

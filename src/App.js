@@ -1,14 +1,31 @@
+import { Routes, Route } from 'react-router-dom'
+import {
+	Home,
+	Form,
+	Question,
+	Review,
+	Scoreboard,
+	Finish,
+	About
+} from './pages'
 import { useAppContext } from './context/data-context'
 
 function App() {
-	const { tester } = useAppContext()
 	return (
-		<main>
+		<>
 			<h1 className='offscreen'>
 				Quizzy App. The best quiz app that will test your whole knowledge.
 			</h1>
-			{tester}
-		</main>
+			<Routes>
+				<Route index element={<Home />} />
+				<Route path='form' element={<Form />} />
+				<Route path='/question/:index' element={<Question />} />
+				<Route path='review' element={<Review />} />
+				<Route path='scoreboard' element={<Scoreboard />} />
+				<Route path='finish' element={<Finish />} />
+				<Route path='about' element={<About />} />
+			</Routes>
+		</>
 	)
 }
 
