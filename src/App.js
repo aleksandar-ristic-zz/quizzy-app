@@ -8,7 +8,6 @@ import {
 	Finish,
 	About
 } from './pages'
-import { useAppContext } from './context/data-context'
 
 function App() {
 	return (

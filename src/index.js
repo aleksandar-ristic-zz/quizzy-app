@@ -1,11 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import * as ReactDOMClient from 'react-dom/client'
 import './index.css'
 import App from './App'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AppProvider } from './context/data-context'
 
-ReactDOM.render(
+ReactDOMClient.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
 		<Router>
 			<Routes>
@@ -19,6 +19,5 @@ ReactDOM.render(
 				/>
 			</Routes>
 		</Router>
-	</React.StrictMode>,
-	document.getElementById('root')
+	</React.StrictMode>
 )

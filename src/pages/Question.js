@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { BsPatchCheckFill } from 'react-icons/bs'
 
 export const Question = () => {
 	return (
@@ -29,27 +30,19 @@ export const Question = () => {
 					<div className='question__lower__answers'>
 						<button className='btn btn__question'>
 							<span>A</span> <span>what is it</span>
-							<div className='check'>
-								<i className='fa-solid fa-check'></i>
-							</div>
+							<div className='check'></div>
 						</button>
 						<button className='btn btn__question'>
-							<span>A</span> <span>what is it</span>
-							<div className='check'>
-								<i className='fa-solid fa-check'></i>
-							</div>
+							<span>B</span> <span>what is it</span>
+							<div className='check'></div>
 						</button>
 						<button className='btn btn__question active'>
-							<span>A</span> <span>what is it</span>
-							<div className='check active'>
-								<i className='fa-solid fa-check'></i>
-							</div>
+							<span>C</span> <span>what is it</span>
+							<div className='check active'></div>
 						</button>
 						<button className='btn btn__question'>
-							<span>A</span> <span>what is it</span>
-							<div className='check'>
-								<i className='fa-solid fa-check'></i>
-							</div>
+							<span>D</span> <span>what is it</span>
+							<div className='check'></div>
 						</button>
 					</div>
 				</section>

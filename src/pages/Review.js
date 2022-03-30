@@ -14,13 +14,13 @@ export const Review = () => {
 					<IoMdOptions />
 				</button>
 				<h2>
-					<FaScroll /> Review
+					Review <FaScroll />
 				</h2>
 			</header>
 			<main className='review'>
 				<h2>Your answers:</h2>
 				<section className='review__cards'>{/* TODO REVIEW CARDS */}</section>
-				<nav className='review__options'>
+				<nav className='review__options hide'>
 					<Link to='/form' className='btn'>
 						<TiArrowBack /> Retake
 					</Link>

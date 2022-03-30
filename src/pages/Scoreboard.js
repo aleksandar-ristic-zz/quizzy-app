@@ -14,17 +14,17 @@ export const Scoreboard = () => {
 					<IoMdOptions />
 				</button>
 				<h2>
-					<HiUserGroup /> Scoreboard
+					Scoreboard <HiUserGroup />
 				</h2>
 			</header>
 			<main className='score'>
 				<h2>All scores:</h2>
 				<section className='score__cards'>{/* TODO SCORE CARDS */}</section>
-				<section className='score__options show'>
-					<Link className='btn'>
+				<section className='score__options hide'>
+					<Link to='/form' className='btn'>
 						<TiArrowBack /> Play Again
 					</Link>
-					<Link className='btn'>
+					<Link to='/' className='btn'>
 						<BsHouseDoorFill /> Home
 					</Link>
 				</section>
