@@ -6,21 +6,22 @@ import { Answers } from '../components'
 
 export const Question = () => {
 	const [countdown, setCountdown] = useState(60)
-	const { loading, questions } = useAppContext()
+	const { loading, questions, handleAnswers } = useAppContext()
 	const { i } = useParams()
 	const index = parseInt(i)
 
 	const navigate = useNavigate()
 
 	useEffect(() => {
+		let timer
+
 		if (countdown !== 0) {
-			const timer = setInterval(() => {
-				setCountdown(countdown - 1)
+			timer = setInterval(() => {
+				setCountdown(prev => prev - 1)
 			}, 1000)
-			return () => clearInterval(timer)
 		}
 		if (countdown === 0) {
-			console.log('time is up')
+			handleAnswers(index, 'timeout')
 			if (index + 1 === questions.length) {
 				navigate('/finish')
 			} else {
@@ -28,6 +29,8 @@ export const Question = () => {
 				setCountdown(60)
 			}
 		}
+
+		return () => clearInterval(timer)
 	}, [countdown])
 
 	if (loading) {
@@ -62,9 +65,9 @@ export const Question = () => {
 						className='question__lower__q'
 						dangerouslySetInnerHTML={{ __html: question }}
 					/>
-					<Answers {...questions[index]} />
+					<Answers {...questions[index]} index={index} />
 				</section>
-				{index + 1 === questions.length - 1 ? (
+				{index + 1 === questions.length ? (
 					<Link to='/finish' className='btn btn__next'>
 						Finish
 					</Link>

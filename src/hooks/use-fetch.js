@@ -13,10 +13,7 @@ export const useFetch = () => {
 		const res = await axios(URL).catch(err => console.error(err))
 
 		if (res && res.data) {
-			const newData = res.data.results.map(question => {
-				return { ...question, user_answer: '' }
-			})
-			setQuestions(newData)
+			setQuestions(res.data.results)
 		}
 		setLoading(false)
 	}

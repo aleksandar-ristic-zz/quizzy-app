@@ -14,12 +14,16 @@ html {
 }
 
 body {
+	min-height: 100vh;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.4;
 	color: #333333;
 	background-color: #ededed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-blend-mode: luminosity;
 }
 
 header,
@@ -309,7 +313,8 @@ form.form .difficulty label {
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
-.question__upper {
+.question__upper,
+.question__lower {
 	width: 100%;
 	padding: 1.5rem 0;
 }
@@ -349,9 +354,9 @@ form.form .difficulty label {
 	transition: width 1s linear;
 }
 .question__lower__q {
-	color: #333333;
+	color: hsl(0, 0%, 30%);
 	font-size: 1.375rem;
-	font-weight: 300;
+	font-weight: 500;
 }
 .question__lower__answers {
 	padding: 3rem 0;
@@ -414,6 +419,7 @@ form.form .difficulty label {
 	background-color: #e61e75;
 	border-radius: 50%;
 	opacity: 0.2;
+	z-index: -1;
 }
 .finish__scorePoints__inner::after {
 	content: '';
@@ -425,6 +431,7 @@ form.form .difficulty label {
 	background-color: #e61e75;
 	border-radius: 50%;
 	opacity: 0.1;
+	z-index: -1;
 }
 .finish__scorePoints__inner p {
 	font-size: 0.875rem;
@@ -433,6 +440,9 @@ form.form .difficulty label {
 .finish__save {
 	position: relative;
 	padding: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .finish__save label {
 	display: inline-block;
@@ -446,6 +456,7 @@ form.form .difficulty label {
 	background-color: transparent;
 	border: 0;
 	border-bottom: 1px solid #1d3658;
+	text-align: center;
 	color: #1d3658;
 	font-size: 0.875rem;
 	outline: 1px solid transparent;
@@ -465,6 +476,10 @@ form.form .difficulty label {
 	padding: 0;
 	background-color: transparent;
 	color: #e61e75;
+	font-size: 1.5rem;
+}
+.finish__save button:disabled {
+	opacity: 0.5;
 }
 .finish__stats,
 .finish__options {
@@ -609,16 +624,16 @@ form.form .difficulty label {
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
-.review__cards .review__card > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-pack: distribute;
-	justify-content: space-around;
-}
 .review__cards .review__card > div:first-of-type {
 	gap: 0.35rem;
 	padding-bottom: 0.35rem;
+	display: grid;
+	grid-template-columns: 25px auto;
+}
+.review__cards .review__card > div:nth-of-type(2) {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
 }
 .review__cards .review__card__no {
 	color: #e61e75;
@@ -637,7 +652,7 @@ form.form .difficulty label {
 .review__cards .review__card__user.correct {
 	color: #29bc69;
 }
-.review__cards .review__card__user.wrong {
+.review__cards .review__card__user.incorrect {
 	color: #f73b61;
 }
 .review__cards .review__card:nth-of-type(odd) {
@@ -712,6 +727,12 @@ form.form .difficulty label {
 	height: 65vh;
 	overflow-y: scroll;
 }
+
+.score__cards p.empty {
+	margin: 5rem 0;
+	text-align: center;
+}
+
 .score__cards::-webkit-scrollbar {
 	width: 2px;
 }
@@ -726,21 +747,17 @@ form.form .difficulty label {
 }
 .score__cards .score__card {
 	padding: 1rem 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-pack: distribute;
-	justify-content: space-around;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 25px auto 100px;
 }
 .score__cards .score__card__no {
 	color: #e61e75;
 	font-weight: 500;
+	text-align: right;
 }
 .score__cards .score__card__name {
 	color: #616161;
+	text-align: center;
 }
 .score__cards .score__card:nth-of-type(odd) {
 	background-color: #e6e6e6;

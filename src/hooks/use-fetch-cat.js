@@ -25,10 +25,12 @@ export const useFetchCategory = () => {
 
 	useEffect(() => {
 		const storage = localStorage.getItem('category')
+
 		if (!storage) {
 			fetchCategory()
 		} else {
 			setCategory(JSON.parse(storage))
+			setLoading(false)
 		}
 	}, [])
 

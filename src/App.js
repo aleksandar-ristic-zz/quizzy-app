@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import {
 	Home,
@@ -10,6 +11,9 @@ import {
 } from './pages'
 
 function App() {
+	useEffect(() => {
+		document.body.style.backgroundImage = 'url(./img/main_bg.png)'
+	}, [])
 	return (
 		<>
 			<h1 className='offscreen'>
