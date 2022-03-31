@@ -27,7 +27,7 @@ export const Home = () => {
 					<Link to='/form' className='btn'>
 						New Game
 					</Link>
-					<Link to='/score' className='btn'>
+					<Link to='/scoreboard' className='btn'>
 						Scoreboard
 					</Link>
 					<Link to='/about' className='btn'>

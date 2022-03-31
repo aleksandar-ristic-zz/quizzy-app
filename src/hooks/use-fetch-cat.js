@@ -14,13 +14,22 @@ export const useFetchCategory = () => {
 
 		if (res && res.data) {
 			setCategory(res.data.trivia_categories)
+			localStorage.setItem(
+				'category',
+				JSON.stringify(res.data.trivia_categories)
+			)
 		}
 
 		setLoading(false)
 	}
 
 	useEffect(() => {
-		fetchCategory()
+		const storage = localStorage.getItem('category')
+		if (!storage) {
+			fetchCategory()
+		} else {
+			setCategory(JSON.parse(storage))
+		}
 	}, [])
 
 	return { loading, category }

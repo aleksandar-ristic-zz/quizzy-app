@@ -1,15 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { BsPatchCheckFill } from 'react-icons/bs'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useAppContext } from '../context/data-context'
+import { Loader } from '../components/Loader'
+import { Answers } from '../components'
 
 export const Question = () => {
+	const [countdown, setCountdown] = useState(60)
+	const { loading, questions } = useAppContext()
+	const { i } = useParams()
+	const index = parseInt(i)
+
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		if (countdown !== 0) {
+			const timer = setInterval(() => {
+				setCountdown(countdown - 1)
+			}, 1000)
+			return () => clearInterval(timer)
+		}
+		if (countdown === 0) {
+			console.log('time is up')
+			if (index + 1 === questions.length) {
+				navigate('/finish')
+			} else {
+				navigate(`/question/${index + 1}`)
+				setCountdown(60)
+			}
+		}
+	}, [countdown])
+
+	if (loading) {
+		return <Loader />
+	}
+
+	const { category, question } = questions[index]
+
 	return (
 		<>
 			<header>
 				<h3 className='question__no'>
-					<span>5</span>/10
+					<span>{index + 1}</span>/{questions.length}
 				</h3>
-				<h2>Category</h2>
+				<h2>{category}</h2>
 			</header>
 			<main
 				className='question'
@@ -17,38 +50,33 @@ export const Question = () => {
 			>
 				<section className='question__upper'>
 					<div className='question__upper__countdown'>
-						<span>60</span>
-						<div className='question__upper__countdown__inner'></div>
+						<span>{countdown}</span>
+						<div
+							className='question__upper__countdown__inner'
+							style={{ width: `${(countdown / 60) * 100}%` }}
+						></div>
 					</div>
 				</section>
 				<section className='question__lower'>
-					<h2 className='question__lower__q'>
-						Question Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Officiis, similique accusantium? Minus?
-					</h2>
-
-					<div className='question__lower__answers'>
-						<button className='btn btn__question'>
-							<span>A</span> <span>what is it</span>
-							<div className='check'></div>
-						</button>
-						<button className='btn btn__question'>
-							<span>B</span> <span>what is it</span>
-							<div className='check'></div>
-						</button>
-						<button className='btn btn__question active'>
-							<span>C</span> <span>what is it</span>
-							<div className='check active'></div>
-						</button>
-						<button className='btn btn__question'>
-							<span>D</span> <span>what is it</span>
-							<div className='check'></div>
-						</button>
-					</div>
+					<h2
+						className='question__lower__q'
+						dangerouslySetInnerHTML={{ __html: question }}
+					/>
+					<Answers {...questions[index]} />
 				</section>
-				<Link to={`will finish`} className='btn btn__next'>
-					Next
-				</Link>
+				{index + 1 === questions.length - 1 ? (
+					<Link to='/finish' className='btn btn__next'>
+						Finish
+					</Link>
+				) : (
+					<Link
+						to={`/question/${index + 1}`}
+						className='btn btn__next'
+						onClick={() => setCountdown(60)}
+					>
+						Next
+					</Link>
+				)}
 			</main>
 		</>
 	)

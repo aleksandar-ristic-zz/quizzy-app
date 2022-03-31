@@ -345,8 +345,8 @@ form.form .difficulty label {
 	);
 	background-image: linear-gradient(to right, #da2fd1, #c471ed, #f64f59);
 	border-radius: 1rem;
-	-webkit-transition: width 0.2s;
-	transition: width 0.2s;
+	-webkit-transition: width 1s linear;
+	transition: width 1s linear;
 }
 .question__lower__q {
 	color: #333333;

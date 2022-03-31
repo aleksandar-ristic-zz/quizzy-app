@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md'
 import { useFetchCategory } from '../hooks/use-fetch-cat'
 import { Loader } from '../components'
+import { useAppContext } from '../context/data-context'
 
 export const Form = () => {
+	const { getQuestions } = useAppContext()
 	const [quiz, setQuiz] = useState({
-		amount: 10,
+		amount: '10',
 		category: '20',
 		difficulty: 'easy'
 	})
@@ -16,6 +18,8 @@ export const Form = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
+		getQuestions(quiz)
+		navigate(`/question/0`)
 	}
 
 	const handleChange = ({ target }) => {
@@ -48,7 +52,8 @@ export const Form = () => {
 							value={quiz.amount}
 							min='10'
 							max='50'
-							onChange={e => handleChange(e)}
+							step='10'
+							onChange={handleChange}
 						/>
 						<p className='warning'>Must be in the range 10-50</p>
 					</section>
@@ -58,7 +63,7 @@ export const Form = () => {
 							id='category'
 							name='category'
 							value={quiz.category}
-							onChange={e => handleChange(e)}
+							onChange={handleChange}
 						>
 							{category.map(cat => (
 								<option key={cat.id} value={cat.id}>
@@ -76,7 +81,7 @@ export const Form = () => {
 								name='difficulty'
 								value='easy'
 								checked={quiz.difficulty === 'easy'}
-								onChange={e => handleChange(e)}
+								onChange={handleChange}
 							/>
 							<label htmlFor='diff-easy'> Easy</label>
 						</div>
@@ -88,7 +93,7 @@ export const Form = () => {
 								value='medium'
 								name='difficulty'
 								checked={quiz.difficulty === 'medium'}
-								onChange={e => handleChange(e)}
+								onChange={handleChange}
 							/>
 							<label htmlFor='diff-medium'> Medium</label>
 						</div>
@@ -100,7 +105,7 @@ export const Form = () => {
 								value='hard'
 								name='difficulty'
 								checked={quiz.difficulty === 'hard'}
-								onChange={e => handleChange(e)}
+								onChange={handleChange}
 							/>
 							<label htmlFor='diff-hard'> Hard</label>
 						</div>

@@ -18,7 +18,7 @@ function App() {
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path='form' element={<Form />} />
-				<Route path='/question/:index' element={<Question />} />
+				<Route path='/question/:i' element={<Question />} />
 				<Route path='review' element={<Review />} />
 				<Route path='scoreboard' element={<Scoreboard />} />
 				<Route path='finish' element={<Finish />} />
